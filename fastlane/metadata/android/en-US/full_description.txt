@@ -1,0 +1,46 @@
+Flint is a fast, modern video player for Android, powered by the libVLC engine and wrapped in a clean Jetpack Compose and Material 3 interface. It keeps VLC-grade playback and drops the clutter: gesture-first controls, a quick local library, no ads, no tracking and no accounts.
+
+PLAYBACK
+• Plays almost any container and codec libVLC can open (MP4, MKV, AVI, WebM, TS and more)
+• Hardware decoding first, with an automatic software retry from the same spot if a decoder fails
+• Decoder modes: Auto, Software only or Hardware+
+• Playback speed, aspect ratio (fit, stretch, crop) and orientation lock
+• Queue with shuffle and repeat, resume where you left off
+• Picture-in-picture and background playback with a media notification
+• A-B repeat, pinch to zoom up to 5x, clean video screenshots
+
+SUBTITLES AND AUDIO
+• Embedded and external subtitles, auto-converted to SRT (WebVTT, ASS/SSA, TTML, SAMI, MicroDVD and more)
+• Subtitle size, color and outline, shadow or box style
+• Multiple audio tracks, audio delay and subtitle delay
+• 10-band equalizer with presets, pre-amp and volume boost up to 200%
+
+GESTURES
+• Swipe to seek, brightness on the left, volume on the right
+• Double-tap zones to skip or play and pause
+• Screen lock against accidental touches
+• Sleep timer with a gentle fade-out
+
+LIBRARY
+• Folder browsing and an all-videos view, with thumbnails cached off the main thread
+• Search, sorting, playlists and history
+• Choose which folders are scanned
+• Rename, share and delete from the context menu
+
+NETWORK
+• Save SMB, FTP, SFTP and NFS servers and play straight from your NAS, PC or router
+• Finds SMB, NFS, FTP and UPnP / DLNA servers on your Wi-Fi
+• Open HTTP(S), HLS, DASH, RTSP, RTMP, MMS, UDP and RTP streams
+• Open M3U, PLS and XSPF playlists from the web
+• Casting to TVs and speakers found on your network
+• Saved logins stay on your phone
+
+LOOKS
+• Material 3 with dynamic color from your wallpaper, or any custom color
+• Dark, light and pure black themes
+• Material or Glass interface style
+• Classic or Glass player controls, 4 seekbar styles and 4 slider styles
+
+Flint is free and open source under the GPL v3. Source code and issue tracker: https://github.com/heyyntn47-jpg/Flint-player
+
+Flint is an independent project. It is not affiliated with, endorsed by or sponsored by VideoLAN. VLC and the VLC cone are trademarks of VideoLAN.

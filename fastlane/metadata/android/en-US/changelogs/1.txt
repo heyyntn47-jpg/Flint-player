@@ -1,0 +1,5 @@
+First release of Flint.
+• libVLC playback with hardware decoding and software fallback
+• Material 3 and Glass looks, dynamic and custom colors
+• Subtitles, equalizer, A-B repeat, pinch zoom, screenshots
+• SMB, FTP, SFTP, NFS and stream playback, casting, PiP
