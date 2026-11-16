@@ -41,14 +41,3 @@ Never commit it.
 3. The workflow builds, tests, signs, and attaches every APK plus `SHA256SUMS.txt` to a GitHub
    Release. Builds without the secrets are uploaded only as a workflow artifact named
    `...DEBUG-SIGNED-do-not-distribute`, never to a Release.
-
-## Gradle wrapper
-
-No wrapper is committed. Create it once and commit it:
-
-```bash
-gradle wrapper --gradle-version 9.5.0
-git add gradlew gradlew.bat gradle/wrapper
-```
-
-Then replace the `gradle` commands in `.github/workflows/android.yml` with `./gradlew`.

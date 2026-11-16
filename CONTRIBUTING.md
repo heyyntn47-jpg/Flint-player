@@ -3,7 +3,7 @@
 1. Open an issue first for anything bigger than a small fix.
 2. Fork, then branch: `git checkout -b feature/my-change`.
 3. Follow `.editorconfig` (Kotlin official style, 4 spaces).
-4. Run `gradle :app:testDebugUnitTest` and make sure the app builds.
+4. Run `./gradlew :app:testDebugUnitTest` and make sure the app builds.
 5. Open a pull request: say what changed and why, and add screenshots for UI changes.
 
 Rules of thumb

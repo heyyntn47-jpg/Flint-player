@@ -1,6 +1,5 @@
 <div align="center">
 
-<!-- Replace this banner with your own image: put it in the screenshots/ folder as banner.png -->
 <img src="screenshots/banner.png" width="100%" alt="Flint banner"/>
 
 # Flint
@@ -53,24 +52,36 @@ VLC plays almost anything, but its interface shows its age. Flint keeps the part
 
 ## 📱 Screenshots
 
-<!-- Replace the images below with your own screenshots in the screenshots/ folder -->
-
 <div align="center">
 <table>
   <tr>
-    <td align="center"><img src="screenshots/01-home.png" width="220"/><br/><sub>Home · Media Library</sub></td>
-    <td align="center"><img src="screenshots/02-player.png" width="220"/><br/><sub>Player in action</sub></td>
-    <td align="center"><img src="screenshots/03-gestures.png" width="220"/><br/><sub>Gesture controls</sub></td>
+    <td align="center"><img src="screenshots/01-home.png" width="220"/><br/><sub>Home · Material</sub></td>
+    <td align="center"><img src="screenshots/02-home-glass.png" width="220"/><br/><sub>Home · Glass</sub></td>
+    <td align="center"><img src="screenshots/05-settings.png" width="220"/><br/><sub>Settings</sub></td>
   </tr>
   <tr>
-    <td align="center"><img src="screenshots/04-subtitles.png" width="220"/><br/><sub>Subtitles · Audio tracks</sub></td>
-    <td align="center"><img src="screenshots/05-settings.png" width="220"/><br/><sub>Settings · Equalizer</sub></td>
-    <td align="center"><img src="screenshots/06-themes.png" width="220"/><br/><sub>Light · Dark · Dynamic color</sub></td>
+    <td align="center"><img src="screenshots/06-appearance.png" width="220"/><br/><sub>Player controls · Seekbar</sub></td>
+    <td align="center"><img src="screenshots/07-theme.png" width="220"/><br/><sub>Theme · Glass · Custom color</sub></td>
+    <td align="center"><img src="screenshots/08-sliders.png" width="220"/><br/><sub>Seekbar and slider styles</sub></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="screenshots/09-gestures.png" width="220"/><br/><sub>Gestures</sub></td>
+    <td align="center"><img src="screenshots/10-about.png" width="220"/><br/><sub>About</sub></td>
+    <td></td>
   </tr>
 </table>
 </div>
 
-*The images above are placeholders. Replace them by uploading real screenshots with the same file names into `/screenshots`.*
+### 🎞️ Player
+
+<div align="center">
+<table>
+  <tr>
+    <td align="center"><img src="screenshots/04-player-classic.png" width="380"/><br/><sub>Classic controls</sub></td>
+    <td align="center"><img src="screenshots/03-player-glass.png" width="380"/><br/><sub>Glass controls</sub></td>
+  </tr>
+</table>
+</div>
 
 ## ✨ Features
 
@@ -180,7 +191,7 @@ Flint is built to stay out of libVLC's way.
 - **Baseline profile** for faster cold start (installed via ProfileInstaller).
 - **Android 7.0 (API 24) and up.**
 
-> Frame rate on a given phone depends on the file, the codec and the device. Measure on your own hardware; the profiling steps in [`docs/AUDIT.md`](docs/AUDIT.md) show how.
+> Frame rate on a given phone depends on the file, the codec and the device. Measure on your own hardware.
 
 ## 🧱 Architecture
 
@@ -237,7 +248,7 @@ There is no dependency-injection framework: state lives in a few singletons (`Pr
 - Android Studio (current stable) or the command line
 - **JDK 17**
 - Android SDK with **`compileSdk 37`**
-- Gradle **9.5.0** (no wrapper is committed yet; see below)
+- Gradle **9.5.0** (the included wrapper downloads it for you)
 - No NDK needed: libVLC ships prebuilt native libraries
 
 ### Clone and build
@@ -246,14 +257,13 @@ There is no dependency-injection framework: state lives in a few singletons (`Pr
 git clone https://github.com/heyyntn47-jpg/Flint-player.git
 cd Flint-player
 
-gradle :app:testDebugUnitTest     # unit tests
-gradle :app:assembleDebug         # debug APK
-gradle :app:assembleRelease       # release APK
+./gradlew :app:testDebugUnitTest     # unit tests
+./gradlew :app:assembleDebug         # debug APK
+./gradlew :app:assembleRelease       # release APK
 ```
 
 Output: `app/build/outputs/apk/`
 
-> **Gradle wrapper:** optional. Run the **Generate Gradle wrapper** workflow from the Actions tab once and it commits `gradlew` for you.
 
 ### ABIs
 
@@ -313,7 +323,7 @@ Contributions are welcome.
 1. **Open an issue first** for anything bigger than a small fix.
 2. Fork the repo and create a branch: `git checkout -b feature/my-change`.
 3. Follow the existing style (see `.editorconfig`): Kotlin official code style, 4-space indents.
-4. Run `gradle :app:testDebugUnitTest` and make sure the app builds.
+4. Run `./gradlew :app:testDebugUnitTest` and make sure the app builds.
 5. Open a pull request that says **what** changed and **why**. Add screenshots for UI changes.
 
 **Please:**
@@ -357,7 +367,6 @@ Full third-party details: [`NOTICE.md`](NOTICE.md) and [`licenses/FONTS.md`](lic
 |---|---|
 | [`CHANGELOG.md`](CHANGELOG.md) | What changed in each release |
 | [`docs/RELEASING.md`](docs/RELEASING.md) | Signing key and release steps |
-| [`docs/AUDIT.md`](docs/AUDIT.md) | License and performance review |
 | [`docs/APP_ICON.md`](docs/APP_ICON.md) | How to change the app icon |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | How to contribute |
 

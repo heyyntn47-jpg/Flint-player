@@ -25,14 +25,13 @@ jobs:
           distribution: temurin
           java-version: 17
 
-      # Once a Gradle wrapper is committed (see README), replace this step and the `gradle`
-      # commands below with ./gradlew so local and CI builds use the same Gradle version.
       - uses: gradle/actions/setup-gradle@v4
-        with:
-          gradle-version: 9.5.0
+
+      - name: Make wrapper executable
+        run: chmod +x gradlew
 
       - name: Unit tests
-        run: gradle :app:testDebugUnitTest --no-daemon
+        run: ./gradlew :app:testDebugUnitTest --no-daemon
 
       - name: Restore signing key
         id: signing
@@ -54,7 +53,7 @@ jobs:
           FLINT_KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
           FLINT_KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
           FLINT_KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
-        run: gradle :app:assembleRelease --no-daemon
+        run: ./gradlew :app:assembleRelease --no-daemon
 
       - name: Collect APKs
         id: collect

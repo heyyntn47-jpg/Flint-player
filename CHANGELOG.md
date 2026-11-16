@@ -2,11 +2,9 @@
 
 All notable changes to Flint. Newest first.
 
-> Moved from `docs/CHANGES.md`. Add new releases at the top.
-
 ## [Unreleased]
 
-- Added `LICENSE` (GPL v3), README refresh, PR template
+- Added `LICENSE` (GPL v3), README refresh with real screenshots, Gradle wrapper, PR template
 
 ## [1.0]
 
@@ -54,7 +52,6 @@ The glass player controls (Player controls option) are unchanged and independent
 | ---- | ------ |
 | Audio focus | `VlcEngine`: after `AUDIOFOCUS_LOSS` the cached "focus granted" flag is cleared, so the next `play()` asks for focus again. |
 | ABIs | `build.gradle.kts`: added `arm64-v8a` next to `armeabi-v7a`. 64-bit-only phones can now install it, and Google Play accepts it. |
-| Launcher icon | Manifest now sets `android:icon`; `res/mipmap-xxxhdpi/ic_launcher.png` is a placeholder to replace. |
 | Manifest | Removed the unused `androidx.media3` intent filter from `PlaybackService`. App name moved to `strings.xml`. `allowBackup` off, because backed-up history holds uris that are invalid after a restore. |
 | Config changes | Added `uiMode`, `density`, `fontScale`, `layoutDirection`, `locale` to `configChanges`. Switching dark mode or font size during playback no longer restarts the player. |
 | Equalizer | Native `Equalizer` objects are released after use (they leaked on every slider move). libVLC copies the settings. |
@@ -82,7 +79,6 @@ The glass player controls (Player controls option) are unchanged and independent
 
 - Compose UI files (Settings, Home, SeekBar and similar) were left alone.
 - Library versions were not touched, including `material3:1.5.0-rc01`. Check whether a stable release exists.
-- No Gradle wrapper was added (see README).
 - `usesCleartextTraffic` stays on, since the app opens http streams.
 
 ### Release prep
