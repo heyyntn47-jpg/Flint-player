@@ -1,0 +1,52 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright (C) 2026 heyyntn47
+
+package com.flint.player.ui
+
+import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.tween
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.size
+import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
+import androidx.compose.material3.LoadingIndicator
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.unit.dp
+
+/**
+ * Full-screen page shown while the playback engine is built and the first video starts.
+ * Just Material 3's shape-morphing loading indicator, centred on black like the player.
+ */
+@OptIn(ExperimentalMaterial3ExpressiveApi::class)
+@Composable
+fun EngineLoading(modifier: Modifier = Modifier) {
+    val scheme = MaterialTheme.colorScheme
+
+    // Appears straight away (the page it sits on is already black), with a short fade
+    val fade = remember { Animatable(0f) }
+    LaunchedEffect(Unit) {
+        fade.animateTo(1f, tween(180))
+    }
+
+    Box(
+        modifier = modifier
+            .fillMaxSize()
+            .background(Color.Black),
+        contentAlignment = Alignment.Center
+    ) {
+        LoadingIndicator(
+            modifier = Modifier
+                .size(84.dp)
+                .graphicsLayer { alpha = fade.value },
+            color = scheme.primary
+        )
+    }
+}

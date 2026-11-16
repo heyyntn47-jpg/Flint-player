@@ -1,0 +1,6 @@
+# Baseline profile: tells Android to precompile the code used at startup and when playing a
+# video, so the first launch and the first playback don't run through the slow interpreter.
+HSPLcom/flint/player/**;->**(**)**
+Lcom/flint/player/**;
+HSPLorg/videolan/libvlc/**;->**(**)**
+Lorg/videolan/libvlc/**;

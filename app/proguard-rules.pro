@@ -1,0 +1,5 @@
+-keep class org.videolan.** { *; }
+-dontwarn org.videolan.**
+-keep class com.flint.player.data.Prefs { *; }
+-dontwarn org.checkerframework.**
+-dontwarn javax.annotation.**

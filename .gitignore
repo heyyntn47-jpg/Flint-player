@@ -1,0 +1,16 @@
+build/
+.gradle/
+.idea/
+local.properties
+*.apk
+
+# Signing: never commit the key or its passwords
+*.jks
+*.keystore
+keystore.properties
+
+# OS / IDE noise
+.DS_Store
+captures/
+*.iml
+.kotlin/
