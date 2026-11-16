@@ -1,0 +1,26 @@
+name: Create signing key
+on: workflow_dispatch
+jobs:
+  keygen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+      - name: Generate key and store it as repo secrets
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          set -e
+          PASS=$(openssl rand -base64 48 | tr -dc 'A-Za-z0-9' | head -c 24)
+          echo "::add-mask::$PASS"
+          keytool -genkeypair -keystore flint-release.jks -alias flint \
+            -keyalg RSA -keysize 4096 -validity 10000 \
+            -storepass "$PASS" -keypass "$PASS" \
+            -dname "CN=Flint, O=heyyntn47, C=US"
+          base64 -w0 flint-release.jks | gh secret set KEYSTORE_BASE64 --repo "$GITHUB_REPOSITORY"
+          printf %s "$PASS" | gh secret set KEYSTORE_PASSWORD --repo "$GITHUB_REPOSITORY"
+          printf %s "$PASS" | gh secret set KEY_PASSWORD --repo "$GITHUB_REPOSITORY"
+          printf %s "flint" | gh secret set KEY_ALIAS --repo "$GITHUB_REPOSITORY"
+          echo "Secrets saved."
